@@ -53,8 +53,8 @@ RUN echo "#${P4REPO}" > /etc/apt/sources.list.d/perforce.list && \
 
 ENV P4DGRACE=$P4DGRACE
 
-ADD ./setup-perforce.sh /usr/local/bin/
-ADD ./run.sh  /
+ADD setup-perforce.sh /usr/local/bin/
+ADD run.sh  /
 
 CMD ["/run.sh"]
 
