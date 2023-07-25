@@ -57,4 +57,5 @@ ADD ./setup-perforce.sh /usr/local/bin/
 ADD ./run.sh  /usr/local/bin/
 
 #CMD ["/run.sh"]
-CMD /usr/local/bin/run.sh
+#CMD /usr/local/bin/run.sh
+CMD /bin/bash -c '/usr/local/bin/run.sh; /bin/bash'
