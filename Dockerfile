@@ -57,12 +57,3 @@ ADD ./setup-perforce.sh /usr/local/bin/
 ADD ./run.sh  /
 
 CMD ["/run.sh"]
-
-#COPY setup-perforce.sh setup-perforce.sh
-#COPY ./setup-perforce.sh /usr/local/bin/setup-perforce.sh
-
-#CMD /opt/perforce/sbin/configure-helix-p4d.sh
-#CMD  /usr/local/bin/setup-perforce.sh
-
-
-
