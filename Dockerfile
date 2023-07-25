@@ -29,10 +29,18 @@ RUN \
   echo "${P4REPO}\n" > /etc/apt/sources.list.d/perforce.list
 
 # P4D configuration
-ENV P4D_PORT              "ssl:perforce:1666"
-ENV P4D_SUPER             "super"
-ENV P4D_SUPER_PASSWD      ""
-ENV P4D_ROOT              "/perforce-data"
+#ENV P4D_PORT              "ssl:perforce:1666"
+#ENV P4D_SUPER             "super"
+#ENV P4D_SUPER_PASSWD      ""
+#ENV P4D_ROOT              "/perforce-data"
+
+EXPOSE 1666
+ENV NAME p4depot
+ENV P4CONFIG .p4config
+ENV DATAVOLUME /perforce-data
+ENV P4PORT 1666
+ENV P4USER p4admin
+VOLUME ["$DATAVOLUME"]
 
 #COPY Version /opt/perforce/etc/Docker-Version
 
@@ -44,6 +52,11 @@ RUN echo "#${P4REPO}" > /etc/apt/sources.list.d/perforce.list && \
     echo "${P4_PUBLIC_REPO}" >> /etc/apt/sources.list.d/perforce.list
 
 ENV P4DGRACE=$P4DGRACE
+
+ADD ./setup-perforce.sh /usr/local/bin/
+ADD ./run.sh  /
+
+CMD ["/run.sh"]
 
 #COPY setup-perforce.sh setup-perforce.sh
 #COPY ./setup-perforce.sh /usr/local/bin/setup-perforce.sh
