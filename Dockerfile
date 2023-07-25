@@ -36,17 +36,20 @@ ENV P4D_ROOT              "/perforce-data"
 
 COPY Version /opt/perforce/etc/Docker-Version
 
-COPY setup/configure-helix-p4d.sh /opt/perforce/sbin/configure-helix-p4d.sh
+#COPY setup/configure-helix-p4d.sh /opt/perforce/sbin/configure-helix-p4d.sh
 RUN  chmod 755 /opt/perforce/sbin/configure-helix-p4d.sh
 
 # Simple Helix configuration
 RUN echo "#${P4REPO}" > /etc/apt/sources.list.d/perforce.list && \
     echo "${P4_PUBLIC_REPO}" >> /etc/apt/sources.list.d/perforce.list
 
-
 ENV P4DGRACE=$P4DGRACE
 
+COPY setup-perforce.sh setup-perforce.sh
+COPY setup-perforce.sh /usr/local/bin/setup-perforce.sh
+
 #CMD /opt/perforce/sbin/configure-helix-p4d.sh
+CMD  /usr/local/bin/setup-perforce.sh
 
 
 
