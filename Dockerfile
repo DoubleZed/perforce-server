@@ -46,7 +46,7 @@ RUN echo "#${P4REPO}" > /etc/apt/sources.list.d/perforce.list && \
 ENV P4DGRACE=$P4DGRACE
 
 #COPY setup-perforce.sh setup-perforce.sh
-COPY setup-perforce.sh /usr/local/bin/setup-perforce.sh
+COPY ./setup-perforce.sh /usr/local/bin/setup-perforce.sh
 
 #CMD /opt/perforce/sbin/configure-helix-p4d.sh
 CMD  /usr/local/bin/setup-perforce.sh
