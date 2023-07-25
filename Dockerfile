@@ -56,4 +56,5 @@ ENV P4DGRACE=$P4DGRACE
 ADD ./setup-perforce.sh /usr/local/bin/
 ADD ./run.sh  /
 
-CMD ["/run.sh"]
+#CMD ["/run.sh"]
+CMD /run.sh
