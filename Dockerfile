@@ -53,6 +53,9 @@ RUN echo "#${P4REPO}" > /etc/apt/sources.list.d/perforce.list && \
 
 ENV P4DGRACE=$P4DGRACE
 
+ADD ./p4-users.txt /root/
+ADD ./p4-groups.txt /root/
+ADD ./p4-protect.txt /root/
 ADD ./setup-perforce.sh /usr/local/bin/
 ADD ./run.sh  /usr/local/bin/
 
