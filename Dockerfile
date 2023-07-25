@@ -34,7 +34,7 @@ ENV P4D_SUPER             "super"
 ENV P4D_SUPER_PASSWD      ""
 ENV P4D_ROOT              "/perforce-data"
 
-COPY Version /opt/perforce/etc/Docker-Version
+#COPY Version /opt/perforce/etc/Docker-Version
 
 #COPY setup/configure-helix-p4d.sh /opt/perforce/sbin/configure-helix-p4d.sh
 RUN  chmod 755 /opt/perforce/sbin/configure-helix-p4d.sh
