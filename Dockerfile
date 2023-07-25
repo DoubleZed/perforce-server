@@ -56,6 +56,9 @@ ENV P4DGRACE=$P4DGRACE
 ADD ./setup-perforce.sh /usr/local/bin/
 ADD ./run.sh  /usr/local/bin/
 
+RUN  chmod 755 /usr/local/bin/setup-perforce.sh
+RUN  chmod 755 /usr/local/bin/run.sh
+
 #CMD ["/run.sh"]
 #CMD /usr/local/bin/run.sh
 CMD /bin/bash -c '/usr/local/bin/run.sh; /bin/bash'
